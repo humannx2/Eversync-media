@@ -23,13 +23,20 @@ export default function Navbar() {
     ];
 
     const menuDialog = (
-        <div className={`absolute top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-4 transition-all duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
-            {navElements.map((element, index) => (
-                <Link key={index} href={element.href} className={`${inter.className} text-lg font-semibold`} onClick={() => setIsOpen(false)}>
-                    {element.label.toUpperCase()}
-                </Link>
-            ))}
+        <div className="md:hidden bg-white shadow-lg absolute w-full top-16 left-0 z-50">
+        <div className="px-2 pt-2 pb-3 space-y-1">
+          {navElements.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-500 transition-colors duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
+      </div>
     )
 
     return (
@@ -40,8 +47,8 @@ export default function Navbar() {
             <div className="text-2xl font-bold">Brave.</div>
             <div className="">50.4509° N, 30.5225° E</div>
         </div>
-        <nav className="hidden md:block">
-            <ul className="flex gap-x-4 items-center justify-center text-lg font-semibold">
+        <nav className="">
+            <ul className="hidden md:flex gap-x-4 items-center justify-center text-lg font-semibold">
                 {navElements.map((element, index) => (
                     <li key={index} className={`${inter.className} text-[.9rem] px-3`}>
                         <Link href={element.href}>{element.label.toUpperCase()}</Link>
@@ -51,15 +58,15 @@ export default function Navbar() {
                     <SunIcon className="w-6 h-6 cursor-pointer" />
                 </li>
             </ul>
+            <div className="block md:hidden border-2 border-white rounded-lg p-2 transition-all duration-300" onClick={() => setIsOpen(prev => !prev)}>
+                {isOpen ? (
+                    <X className="w-8 h-8 cursor-pointer" />
+                ) : (
+                    <MenuIcon className="w-8 h-8 cursor-pointer" />
+                )}
+            </div>
+            {isOpen && menuDialog}
         </nav>
-        <div className="block md:hidden border-2 border-white rounded-lg p-2 transition-all duration-300" onClick={() => setIsOpen(prev => !prev)}>
-            {isOpen ? (
-                <X className="w-8 h-8 cursor-pointer" />
-            ) : (
-                <MenuIcon className="w-8 h-8 cursor-pointer" />
-            )}
-        </div>
-        {isOpen && menuDialog}
     </header>
   )
 }
