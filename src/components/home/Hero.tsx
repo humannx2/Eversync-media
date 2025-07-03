@@ -1,18 +1,19 @@
 "use client";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section
-    style={{ backgroundImage: "url('/images/hero-image.jpg')" }}
-    className="bg-gray-600 min-h-screen">
-        <h1 className="text-[13rem] text-neutral-100/60 font-bold pt-4 text-center px-8 flex flex-col justify-center">
+       <section
+      className="bg-[url('/images/hero-image.jpg')] bg-cover bg-center min-h-screen w-full"
+    >
+                    <h1 className="text-[13rem] text-white mix-blend-difference font-bold pt-4 text-center px-8 flex flex-col justify-center pointer-events-none select-none">
             <span className="text-start">
                 {"Brave".toUpperCase()}
             </span>
             <span className="text-end -mt-20">
                 {"Studio".toUpperCase()}
             </span>
-        </h1>
+            </h1>
         <div className="flex items-center justify-between px-10 py-4 mt-2">
             <div className="flex flex-col gap-1 text-neutral-100/60 text-lg font-semibold">
                 <span>What we do</span>
