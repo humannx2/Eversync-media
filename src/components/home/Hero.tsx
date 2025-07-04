@@ -26,7 +26,7 @@ export default function HeroSection() {
                 {/* Service List with dividers */}
                 <div className="border-t border-white/60 divide-y divide-white/60">
                   {[
-                    { title: "BRANDING", number: "01" },
+                    { title: "BRANDINGg", number: "01" },
                     { title: "DESIGN", number: "02" },
                     { title: "DEVELOPMENT", number: "03" },
                     { title: "PHOTOGRAPHY", number: "04" },
