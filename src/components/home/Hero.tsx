@@ -1,3 +1,4 @@
+console.log("✅ Deploying latest Hero.tsx");
 "use client";
 
 export default function HeroSection() {
